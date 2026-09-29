@@ -79,11 +79,11 @@
         </div>
     </div>
 
-    <!-- Main Website Dashboard (Directly loads Hero + Notebook Sections) -->
-    <div id="mainDashboard" class="hidden absolute inset-0 z-20 bg-[#0f051d] overflow-y-auto flex flex-col items-center p-4 lg:p-10 transition-all duration-1000">
+    <!-- Main Website Dashboard (Relative w-full prevents layout trapping & overlaps) -->
+    <div id="mainDashboard" class="hidden relative w-full z-20 bg-[#0f051d] flex flex-col items-center p-4 lg:p-10 transition-all duration-1000">
 
         <!-- SECTION 1: Hero Section (Split Grid Layout) -->
-        <div class="w-full max-w-7xl min-h-[90vh] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-12">
+        <div class="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-16 lg:py-24">
             <!-- LEFT SIDE: Enlarged Disney Video Asset (7 cols) -->
             <div class="w-full lg:col-span-7 flex justify-center items-center">
                 <div class="relative w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl shadow-purple-950/60 border border-purple-500/30 bg-black/50">
@@ -94,7 +94,7 @@
                 </div>
             </div>
 
-            <!-- RIGHT SIDE: Vibe Text & Placeholder for Code-Drawn Heart (5 cols) -->
+            <!-- RIGHT SIDE: Vibe Text & Code-Drawn Heart Canvas (5 cols) -->
             <div class="w-full lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left justify-center space-y-6">
                 <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-300 text-xs font-semibold tracking-wider uppercase">
                     <span>✨ Special Delivery</span>
@@ -108,319 +108,191 @@
                     Every single line, animation, and memory packed into this space is dedicated to celebrating you today and always.
                 </p>
 
-               <!-- Python Turtle Style Code-Generated Heart Canvas -->
-<div class="relative w-full max-w-xs h-56 bg-black/60 border border-purple-500/30 rounded-2xl flex items-center justify-center p-2 overflow-hidden shadow-xl shadow-purple-950/50">
-    <canvas id="turtleHeartCanvas" width="280" height="220" class="w-full h-full"></canvas>
-</div>
+                <!-- Python Turtle Style Code-Generated Heart Canvas -->
+                <div class="relative w-full max-w-xs h-56 bg-black/60 border border-purple-500/30 rounded-2xl flex items-center justify-center p-2 overflow-hidden shadow-xl shadow-purple-950/50">
+                    <canvas id="turtleHeartCanvas" width="280" height="220" class="w-full h-full object-contain"></canvas>
+                </div>
             </div>
         </div>
 
-       <div class="w-full max-w-4xl py-16 flex flex-col items-center">
-    
-    <div class="text-center mb-8">
-        <span class="text-pink-400 text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Interactive Journal</span>
-        <h3 class="text-3xl font-bold text-white mt-3">Pages From Our Story</h3>
-        <p class="text-xs text-purple-300/70 mt-1">Tap the right corner or edge to flip the page 📖</p>
-    </div>
-
-    <!-- The Realistic Book Shell with Stacked Sheet Illusion -->
-    <div class="relative w-full max-w-3xl">
-        
-        <!-- Stacked page layers underneath (gives physical book thickness) -->
-        <div class="absolute -bottom-2 -right-2 inset-0 bg-purple-950/40 rounded-3xl border border-purple-500/20 pointer-events-none"></div>
-        <div class="absolute -bottom-4 -right-4 inset-0 bg-purple-950/20 rounded-3xl border border-purple-500/10 pointer-events-none"></div>
-
-        <!-- Main Active Notebook Sheet -->
-        <div id="notebookSheet" class="relative w-full bg-[#1b0a2e] border border-purple-500/30 rounded-3xl p-8 lg:p-12 shadow-2xl backdrop-blur-md overflow-hidden transition-all duration-500 select-none">
+        <!-- SECTION 2: Interactive Journal / Notebook -->
+        <div class="w-full max-w-4xl py-16 flex flex-col items-center">
             
-            <!-- Realistic Curled Dog-Ear (Top Right Corner) -->
-            <div onclick="nextNotebookPage()" title="Flip page" class="absolute top-0 right-0 w-16 h-16 cursor-pointer group z-20">
-                <!-- Fold triangle shadow -->
-                <div class="absolute top-0 right-0 w-0 h-0 border-t-[48px] border-r-[48px] border-t-pink-500/30 border-r-transparent group-hover:border-t-pink-400/50 transition-all"></div>
-                <!-- Folded paper flap -->
-                <div class="absolute top-0 right-0 w-12 h-12 bg-gradient-to-br from-purple-800 to-pink-600 rounded-bl-xl shadow-lg group-hover:scale-105 group-hover:shadow-pink-500/30 transition-transform"></div>
-                <span class="absolute top-1.5 right-1.5 text-[10px] text-white/80 font-bold">↷</span>
+            <div class="text-center mb-8">
+                <span class="text-pink-400 text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Interactive Journal</span>
+                <h3 class="text-3xl font-bold text-white mt-3">Pages From Our Story</h3>
+                <p class="text-xs text-purple-300/70 mt-1">Tap the right corner or edge to flip the page 📖</p>
             </div>
 
-            <!-- Page Content Layout -->
-            <div id="notebookContent" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <!-- The Realistic Book Shell with Stacked Sheet Illusion -->
+            <div class="relative w-full max-w-3xl">
                 
-                <!-- Text Story Side -->
-                <div class="space-y-4">
-                    <div class="flex items-center gap-2">
-                        <span id="pageBadge" class="text-xs font-semibold text-pink-400 uppercase tracking-wider">Page 01 of 03</span>
-                        <div class="h-1 w-8 bg-purple-500/30 rounded"></div>
+                <!-- Stacked page layers underneath -->
+                <div class="absolute -bottom-2 -right-2 inset-0 bg-purple-950/40 rounded-3xl border border-purple-500/20 pointer-events-none"></div>
+                <div class="absolute -bottom-4 -right-4 inset-0 bg-purple-950/20 rounded-3xl border border-purple-500/10 pointer-events-none"></div>
+
+                <!-- Main Active Notebook Sheet -->
+                <div id="notebookSheet" class="relative w-full bg-[#1b0a2e] border border-purple-500/30 rounded-3xl p-8 lg:p-12 shadow-2xl backdrop-blur-md overflow-hidden transition-all duration-500 select-none">
+                    
+                    <!-- Realistic Curled Dog-Ear (Top Right Corner) -->
+                    <div onclick="nextNotebookPage()" title="Flip page" class="absolute top-0 right-0 w-16 h-16 cursor-pointer group z-20">
+                        <div class="absolute top-0 right-0 w-0 h-0 border-t-[48px] border-r-[48px] border-t-pink-500/30 border-r-transparent group-hover:border-t-pink-400/50 transition-all"></div>
+                        <div class="absolute top-0 right-0 w-12 h-12 bg-gradient-to-br from-purple-800 to-pink-600 rounded-bl-xl shadow-lg group-hover:scale-105 group-hover:shadow-pink-500/30 transition-transform"></div>
+                        <span class="absolute top-1.5 right-1.5 text-[10px] text-white/80 font-bold">↷</span>
                     </div>
-                    
-                    <h4 id="pageTitle" class="text-2xl font-bold text-white tracking-wide">The Very Beginning ✨</h4>
-                    
-                    <p id="pageText" class="handwritten text-2xl text-purple-100/90 leading-relaxed min-h-[120px]">
-                        "I still remember the exact day we started talking. Didn't have any idea you'd turn out to be my absolute favorite notification..."
-                    </p>
+
+                    <!-- Page Content Layout -->
+                    <div id="notebookContent" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        
+                        <!-- Text Story Side -->
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-2">
+                                <span id="pageBadge" class="text-xs font-semibold text-pink-400 uppercase tracking-wider">Page 01 of 03</span>
+                                <div class="h-1 w-8 bg-purple-500/30 rounded"></div>
+                            </div>
+                            
+                            <h4 id="pageTitle" class="text-2xl font-bold text-white tracking-wide">The Very Beginning ✨</h4>
+                            
+                            <p id="pageText" class="handwritten text-2xl text-purple-100/90 leading-relaxed min-h-[120px]">
+                                "I still remember the exact day we started talking. Didn't have any idea you'd turn out to be my absolute favorite notification..."
+                            </p>
+                        </div>
+
+                        <!-- Picture Side -->
+                        <div class="flex justify-center">
+                            <div class="w-full max-w-xs bg-white/5 border border-purple-400/20 p-3 rounded-2xl shadow-xl transform rotate-1 hover:rotate-0 transition-transform duration-300">
+                                <div id="pageImagePlaceholder" class="w-full h-64 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-200 text-sm font-semibold tracking-wide border border-purple-500/20">
+                                    [ Polaroid Memory 1 ]
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Page Flip Click Targets -->
+                    <div onclick="prevNotebookPage()" class="absolute left-0 top-0 bottom-0 w-12 cursor-w-resize hover:bg-white/[0.02] transition" title="Previous Page"></div>
+                    <div onclick="nextNotebookPage()" class="absolute right-0 top-16 bottom-0 w-12 cursor-e-resize hover:bg-white/[0.02] transition" title="Next Page"></div>
+
+                    <!-- Page Dot Indicators -->
+                    <div class="flex justify-center items-center gap-2 mt-8 pt-4 border-t border-purple-500/10">
+                        <span class="w-6 h-2.5 rounded-full bg-pink-500 dot-indicator transition-all"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-white/20 dot-indicator transition-all"></span>
+                        <span class="w-2.5 h-2.5 rounded-full bg-white/20 dot-indicator transition-all"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 3: The Heart Vault Frame Section -->
+        <div class="w-full max-w-4xl py-16 flex flex-col items-center">
+            
+            <div class="text-center mb-8">
+                <span class="text-pink-400 text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Secure Encryption</span>
+                <h3 class="text-3xl font-bold text-white mt-3">The Secret Heart Vault</h3>
+                <p class="text-xs text-purple-300/80 mt-2 italic bg-purple-900/30 py-1.5 px-4 rounded-xl border border-purple-500/20 inline-block">
+                    🔐 Hint: Enter the encrypted passcode to unlock the hidden message inside...
+                </p>
+            </div>
+
+            <div class="w-full bg-[#160826]/90 backdrop-blur-xl border border-purple-500/30 rounded-3xl p-4 lg:p-6 shadow-2xl overflow-hidden relative">
+                <div class="w-full h-[550px] rounded-2xl overflow-hidden border border-purple-500/20 shadow-inner bg-black/50">
+                    <iframe 
+                        src="https://heart-vault.vercel.app/?data=U2FsdGVkX1%2FPru7NVJNIzHOnTV4ljOcYIetKpePckyOT4zL8Jzn4r3%2FhCxYG59y6T5H%2FQTBpGN5JpSo%2FNL3s3HlrF4j9p5RM5ZWF28E6uhjBkJPa8pJgVSGWppJdsbeToOL1X8vZT6UzDktAXMn7lnDx1Ls5swUKaN89%2FQHuAos%3D" 
+                        class="w-full h-full border-0" 
+                        title="Heart Vault Locked Message">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: Media Gallery Showcase -->
+        <div class="w-full max-w-5xl py-16 flex flex-col items-center">
+            
+            <div class="text-center mb-10">
+                <span class="text-pink-400 text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Memory Lane</span>
+                <h3 class="text-3xl font-bold text-white mt-3">Moments & Highlights</h3>
+                <p class="text-xs text-purple-300/70 mt-1">A curated collection of snapshots and clips 📸</p>
+            </div>
+
+            <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4">
+                
+                <!-- Gallery Item 1 -->
+                <div class="group relative bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-full h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 overflow-hidden flex items-center justify-center text-purple-300 text-sm font-medium border border-purple-500/20 relative">
+                        <span>[ Memory Snapshot 1 ]</span>
+                    </div>
+                    <div class="mt-3 px-1 flex justify-between items-center">
+                        <span class="text-xs text-purple-200/80 font-medium">✨ Unforgettable Vibes</span>
+                        <span class="text-[10px] text-pink-400">01</span>
+                    </div>
                 </div>
 
-                <!-- Picture Side (Styled like a Polaroid / Framed Print) -->
-                <div class="flex justify-center">
-                    <div class="w-full max-w-xs bg-white/5 border border-purple-400/20 p-3 rounded-2xl shadow-xl transform rotate-1 hover:rotate-0 transition-transform duration-300">
-                        <div id="pageImagePlaceholder" class="w-full h-64 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-200 text-sm font-semibold tracking-wide border border-purple-500/20">
-                            <img src="" alt="">                        </div>
+                <!-- Gallery Item 2 -->
+                <div class="group relative bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="w-full h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 overflow-hidden flex items-center justify-center text-purple-300 text-sm font-medium border border-purple-500/20 relative">
+                        <span>[ Memory Snapshot 2 ]</span>
+                    </div>
+                    <div class="mt-3 px-1 flex justify-between items-center">
+                        <span class="text-xs text-purple-200/80 font-medium">✨ Pure Happiness</span>
+                        <span class="text-[10px] text-pink-400">02</span>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="group relative bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-1 sm:col-span-2 md:col-span-1">
+                    <div class="w-full h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 overflow-hidden flex items-center justify-center text-purple-300 text-sm font-medium border border-purple-500/20 relative">
+                        <span>[ Memory Snapshot 3 ]</span>
+                    </div>
+                    <div class="mt-3 px-1 flex justify-between items-center">
+                        <span class="text-xs text-purple-200/80 font-medium">✨ Favorite Moments</span>
+                        <span class="text-[10px] text-pink-400">03</span>
                     </div>
                 </div>
 
             </div>
-
-            <!-- Subtle Page Edge Navigation Zones -->
-            <div onclick="prevNotebookPage()" class="absolute left-0 top-0 bottom-0 w-12 cursor-w-resize hover:bg-white/[0.02] transition" title="Previous Page"></div>
-            <div onclick="nextNotebookPage()" class="absolute right-0 top-16 bottom-0 w-12 cursor-e-resize hover:bg-white/[0.02] transition" title="Next Page"></div>
-
-            <!-- Bottom Progress Indicators -->
-            <div class="flex justify-center items-center gap-2 mt-8 pt-4 border-t border-purple-500/10">
-                <span class="w-2.5 h-2.5 rounded-full bg-pink-500 dot-indicator transition-all"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-white/20 dot-indicator transition-all"></span>
-                <span class="w-2.5 h-2.5 rounded-full bg-white/20 dot-indicator transition-all"></span>
-            </div>
-
         </div>
 
-    </div>
-
-</div>
-<!-- SECTION 3: The Heart Vault Frame Section -->
-<div class="w-full max-w-4xl py-16 flex flex-col items-center">
-    
-    <!-- Section Header & Hint -->
-    <div class="text-center mb-8">
-        <span class="text-pink-400 text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Secure Encryption</span>
-        <h3 class="text-3xl font-bold text-white mt-3">The Secret Heart Vault</h3>
-        <p class="text-xs text-purple-300/80 mt-2 italic bg-purple-900/30 py-1.5 px-4 rounded-xl border border-purple-500/20 inline-block">
-            🔐 Hint: Enter the encrypted passcode to unlock the hidden message inside...
-        </p>
-    </div>
-
-    <!-- Embedded Iframe Container -->
-    <div class="w-full bg-[#160826]/90 backdrop-blur-xl border border-purple-500/30 rounded-3xl p-4 lg:p-6 shadow-2xl overflow-hidden relative">
-        <div class="w-full h-[550px] rounded-2xl overflow-hidden border border-purple-500/20 shadow-inner bg-black/50">
-            <iframe 
-                src="https://heart-vault.vercel.app/?data=U2FsdGVkX1%2FPru7NVJNIzHOnTV4ljOcYIetKpePckyOT4zL8Jzn4r3%2FhCxYG59y6T5H%2FQTBpGN5JpSo%2FNL3s3HlrF4j9p5RM5ZWF28E6uhjBkJPa8pJgVSGWppJdsbeToOL1X8vZT6UzDktAXMn7lnDx1Ls5swUKaN89%2FQHuAos%3D" 
-                class="w-full h-full border-0" 
-                title="Heart Vault Locked Message">
-            </iframe>
-        </div>
-    </div>
-
-</div>
-<!-- SECTION 4: Media Gallery Showcase -->
-<div class="w-full max-w-5xl py-16 flex flex-col items-center">
-    
-    <!-- Section Header -->
-    <div class="text-center mb-10">
-        <span class="text-pink-400 text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Memory Lane</span>
-        <h3 class="text-3xl font-bold text-white mt-3">Moments & Highlights</h3>
-        <p class="text-xs text-purple-300/70 mt-1">A curated collection of snapshots and clips 📸</p>
-    </div>
-
-    <!-- Gallery Grid Layout -->
-    <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4">
-        
-        <!-- Gallery Item 1 -->
-        <div class="group relative bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div class="w-full h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 overflow-hidden flex items-center justify-center text-purple-300 text-sm font-medium border border-purple-500/20 relative">
-                <!-- Replace with actual img tag later: <img src="your-image1.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"> -->
-                <span>[ Memory Snapshot 1 ]</span>
+        <!-- SECTION 5: Catch-the-Memories Mini-Game & Final Birthday Wish -->
+        <div class="w-full max-w-4xl py-16 flex flex-col items-center mb-12">
+            
+            <div class="text-center mb-8">
+                <span class="text-pink-400 text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Interactive Finale</span>
+                <h3 class="text-3xl font-bold text-white mt-3">Catch The Memories 💖</h3>
+                <p class="text-xs text-purple-300/80 mt-1">Tap the floating hearts below to unlock your hidden celebration messages!</p>
             </div>
-            <div class="mt-3 px-1 flex justify-between items-center">
-                <span class="text-xs text-purple-200/80 font-medium">✨ Unforgettable Vibes</span>
-                <span class="text-[10px] text-pink-400">01</span>
-            </div>
-        </div>
 
-        <!-- Gallery Item 2 -->
-        <div class="group relative bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div class="w-full h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 overflow-hidden flex items-center justify-center text-purple-300 text-sm font-medium border border-purple-500/20 relative">
-                <span>[ Memory Snapshot 2 ]</span>
-            </div>
-            <div class="mt-3 px-1 flex justify-between items-center">
-                <span class="text-xs text-purple-200/80 font-medium">✨ Pure Happiness</span>
-                <span class="text-[10px] text-pink-400">02</span>
-            </div>
-        </div>
+            <div class="w-full bg-[#160826]/90 backdrop-blur-xl border border-purple-500/30 rounded-3xl p-6 lg:p-8 shadow-2xl relative min-h-[300px] flex flex-col items-center justify-center overflow-hidden">
+                <div class="absolute top-4 left-6 text-xs text-purple-300/80 font-medium">
+                    Unlocked: <span id="memoryScore" class="text-pink-400 font-bold">0</span> / 4
+                </div>
 
-        <!-- Gallery Item 3 -->
-        <div class="group relative bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-1 sm:col-span-2 md:col-span-1">
-            <div class="w-full h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 overflow-hidden flex items-center justify-center text-purple-300 text-sm font-medium border border-purple-500/20 relative">
-                <span>[ Memory Snapshot 3 ]</span>
+                <div id="gameArena" class="w-full h-48 relative flex items-center justify-around flex-wrap gap-4 p-4"></div>
+
+                <div id="gameMessageBox" class="w-full max-w-lg bg-purple-950/60 border border-pink-500/30 rounded-2xl p-4 text-center text-purple-100 text-sm italic min-h-[60px] flex items-center justify-center transition-all duration-300">
+                    "Tap any floating heart above to unlock a special secret note..."
+                </div>
             </div>
-            <div class="mt-3 px-1 flex justify-between items-center">
-                <span class="text-xs text-purple-200/80 font-medium">✨ Favorite Moments</span>
-                <span class="text-[10px] text-pink-400">03</span>
+
+            <div class="w-full mt-12 bg-gradient-to-tr from-purple-900/40 via-pink-900/30 to-[#160826] border border-pink-500/40 rounded-3xl p-8 lg:p-12 shadow-2xl text-center relative overflow-hidden">
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-pink-500/10 rounded-full blur-2xl pointer-events-none"></div>
+                
+                <h3 class="text-3xl lg:text-4xl font-extrabold text-white mb-4">Happy Birthday, Anita! 🎉</h3>
+                <p class="text-purple-200/90 text-base max-w-xl mx-auto leading-relaxed mb-6">
+                    Thank you for being such an incredible part of my life. May this new year bring you endless success, unbounded happiness, and everything your heart desires. Cheers to more amazing memories! 🥂✨
+                </p>
+
+                <div class="inline-block px-6 py-2 rounded-full bg-white/5 border border-purple-400/20 text-pink-300 text-xs font-semibold tracking-wider uppercase">
+                    Built with 💜 by Your Favorite Developer
+                </div>
             </div>
         </div>
 
     </div>
-
-</div>
-<!-- SECTION 4: Media Gallery Showcase -->
-<div class="w-full max-w-5xl py-16 flex flex-col items-center">
-    
-    <!-- Gallery Grid Layout -->
-    <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4">
-        
-        <!-- Gallery Item 1 -->
-        <div class="group relative bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div class="w-full h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 overflow-hidden flex items-center justify-center text-purple-300 text-sm font-medium border border-purple-500/20 relative">
-                <!-- Replace with actual img tag later: <img src="your-image1.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500"> -->
-                <span>[ Memory Snapshot 1 ]</span>
-            </div>
-            <div class="mt-3 px-1 flex justify-between items-center">
-                <span class="text-xs text-purple-200/80 font-medium">✨ Unforgettable Vibes</span>
-                <span class="text-[10px] text-pink-400">01</span>
-            </div>
-        </div>
-
-        <!-- Gallery Item 2 -->
-        <div class="group relative bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-1">
-            <div class="w-full h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 overflow-hidden flex items-center justify-center text-purple-300 text-sm font-medium border border-purple-500/20 relative">
-                <span>[ Memory Snapshot 2 ]</span>
-            </div>
-            <div class="mt-3 px-1 flex justify-between items-center">
-                <span class="text-xs text-purple-200/80 font-medium">✨ Pure Happiness</span>
-                <span class="text-[10px] text-pink-400">02</span>
-            </div>
-        </div>
-
-        <!-- Gallery Item 3 -->
-        <div class="group relative bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-1 sm:col-span-2 md:col-span-1">
-            <div class="w-full h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 overflow-hidden flex items-center justify-center text-purple-300 text-sm font-medium border border-purple-500/20 relative">
-                <span> <img src="" alt=""></span>
-            </div>
-            <div class="mt-3 px-1 flex justify-between items-center">
-                <span class="text-xs text-purple-200/80 font-medium">✨ Favorite Moments</span>
-                <span class="text-[10px] text-pink-400">03</span>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-<!-- SECTION 5: Catch-the-Memories Mini-Game & Final Birthday Wish -->
-<div class="w-full max-w-4xl py-16 flex flex-col items-center mb-12">
-    
-    <!-- Section Header -->
-    <div class="text-center mb-8">
-        <span class="text-pink-400 text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Interactive Finale</span>
-        <h3 class="text-3xl font-bold text-white mt-3">Catch The Memories 💖</h3>
-        <p class="text-xs text-purple-300/80 mt-1">Tap the floating hearts below to unlock your hidden celebration messages!</p>
-    </div>
-
-    <!-- Mini-Game Arena -->
-    <div class="w-full bg-[#160826]/90 backdrop-blur-xl border border-purple-500/30 rounded-3xl p-6 lg:p-8 shadow-2xl relative min-h-[300px] flex flex-col items-center justify-center overflow-hidden">
-        
-        <!-- Score / Status Tracker -->
-        <div class="absolute top-4 left-6 text-xs text-purple-300/80 font-medium">
-            Unlocked: <span id="memoryScore" class="text-pink-400 font-bold">0</span> / 4
-        </div>
-
-        <!-- Interactive Floating Targets Area -->
-        <div id="gameArena" class="w-full h-48 relative flex items-center justify-around flex-wrap gap-4 p-4">
-            <!-- Dynamic tokens generated by JS -->
-        </div>
-
-        <!-- Message Popup Display Box -->
-        <div id="gameMessageBox" class="w-full max-w-lg bg-purple-950/60 border border-pink-500/30 rounded-2xl p-4 text-center text-purple-100 text-sm italic min-h-[60px] flex items-center justify-center transition-all duration-300">
-            "Tap any floating heart above to unlock a special secret note..."
-        </div>
-
-    </div>
-
-    <!-- Final Closing Birthday Wish Card -->
-    <div class="w-full mt-12 bg-gradient-to-tr from-purple-900/40 via-pink-900/30 to-[#160826] border border-pink-500/40 rounded-3xl p-8 lg:p-12 shadow-2xl text-center relative overflow-hidden">
-        <div class="absolute -top-10 -right-10 w-40 h-40 bg-pink-500/10 rounded-full blur-2xl pointer-events-none"></div>
-        
-        <h3 class="text-3xl lg:text-4xl font-extrabold text-white mb-4">Happy Birthday, Anita! 🎉</h3>
-        <p class="text-purple-200/90 text-base max-w-xl mx-auto leading-relaxed mb-6">
-            Thank you for being such an incredible part of my life. May this new year bring you endless success, unbounded happiness, and everything your heart desires. Cheers to more amazing memories! 🥂✨
-        </p>
-
-        <div class="inline-block px-6 py-2 rounded-full bg-white/5 border border-purple-400/20 text-pink-300 text-xs font-semibold tracking-wider uppercase">
-            Built with 💜 by Your Favorite Developer
-        </div>
-    </div>
-
-</div>
 
     <!-- JavaScript Logic -->
     <script>
         let enteredCode = "";
         const correctCode = "2026";
-
-        // JS Logic for Realistic Page Flipping
-const notebookPages = [
-    {
-        badge: "Page 01 of 03",
-        title: "The Very Beginning ✨",
-        text: "\"I still remember the exact day we started talking. Didn't have any idea you'd turn out to be my absolute favorite notification...\"",
-        placeholder: "[ Polaroid Memory 1 ]"
-    },
-    {
-        badge: "Page 02 of 03",
-        title: "Inside Jokes & Chaos 💬",
-        text: "\"From all our random gists to keeping me sane when coding gets crazy. You're literally one of a kind, no cap.\"",
-        placeholder: "[ Polaroid Memory 2 ]"
-    },
-    {
-        badge: "Page 03 of 03",
-        title: "The Birthday Wish 🎉",
-        text: "\"As you step into a new year of your life, may all your goals align. Stay happy, stay you, my absolute favorite person!\"",
-        placeholder: "[ Birthday Photo / Final ]"
-    }
-];
-
-let currentNotebookIndex = 0;
-
-function renderNotebookPage() {
-    const sheet = document.getElementById('notebookSheet');
-    
-    // Quick micro-fade to simulate page turning
-    sheet.style.opacity = '0.4';
-    sheet.style.transform = 'scale(0.98)';
-
-    setTimeout(() => {
-        const page = notebookPages[currentNotebookIndex];
-        document.getElementById('pageBadge').textContent = page.badge;
-        document.getElementById('pageTitle').textContent = page.title;
-        document.getElementById('pageText').textContent = page.text;
-        document.getElementById('pageImagePlaceholder').textContent = page.placeholder;
-
-        // Update progress dots
-        const dots = document.querySelectorAll('.dot-indicator');
-        dots.forEach((dot, idx) => {
-            if (idx === currentNotebookIndex) {
-                dot.className = "w-6 h-2.5 rounded-full bg-pink-500 dot-indicator transition-all";
-            } else {
-                dot.className = "w-2.5 h-2.5 rounded-full bg-white/20 dot-indicator transition-all";
-            }
-        });
-
-        sheet.style.opacity = '1';
-        sheet.style.transform = 'scale(1)';
-    }, 180);
-}
-
-function nextNotebookPage() {
-    if (currentNotebookIndex < notebookPages.length - 1) {
-        currentNotebookIndex++;
-    } else {
-        currentNotebookIndex = 0; // Loops back to start
-    }
-    renderNotebookPage();
-}
-
-function prevNotebookPage() {
-    if (currentNotebookIndex > 0) {
-        currentNotebookIndex--;
-        renderNotebookPage();
-    }
-}
 
         function updateDisplay() {
             const dots = document.querySelectorAll('.dot');
@@ -465,6 +337,7 @@ function prevNotebookPage() {
                         lockCard.classList.add('hidden');
                         const dashboard = document.getElementById('mainDashboard');
                         dashboard.classList.remove('hidden');
+                        startTurtleHeartAnimation(); // Trigger canvas once unlocked
                     }, 400);
                 }, 200);
             } else {
@@ -481,148 +354,180 @@ function prevNotebookPage() {
             hint.classList.toggle('hidden');
         }
 
-        // Mini-Game Interactive Logic
-const memorySecrets = [
-    "Secret #1: You have the most contagious laughter ever! 😄",
-    "Secret #2: Your support means everything, even when coding gets stressful. 💻",
-    "Secret #3: You're officially my favorite person in the entire universe. 🌟",
-    "Secret #4: Here's to a year filled with wins and absolute happiness! 🥂"
-];
-
-let unlockedCount = 0;
-
-function initMiniGame() {
-    const arena = document.getElementById('gameArena');
-    arena.innerHTML = "";
-
-    memorySecrets.forEach((secret, index) => {
-        const token = document.createElement('div');
-        token.className = "w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-xl shadow-lg shadow-pink-600/30 cursor-pointer transform hover:scale-110 active:scale-95 transition-all animate-bounce";
-        token.style.animationDelay = `${index * 0.2}s`;
-        token.innerHTML = "💖";
-        
-        token.onclick = () => {
-            document.getElementById('gameMessageBox').textContent = `"${secret}"`;
-            if (!token.classList.contains('unlocked')) {
-                token.classList.add('unlocked', 'opacity-40', 'grayscale');
-                token.classList.remove('animate-bounce');
-                unlockedCount++;
-                document.getElementById('memoryScore').textContent = unlockedCount;
-                if (unlockedCount === memorySecrets.length) {
-                    document.getElementById('gameMessageBox').textContent = "🎉 All secret memories unlocked! You're amazing!";
-                }
+        // Notebook Scrapbook Page Flipping Logic
+        const notebookPages = [
+            {
+                badge: "Page 01 of 03",
+                title: "The Very Beginning ✨",
+                text: "\"I still remember the exact day we started talking. Didn't have any idea you'd turn out to be my absolute favorite notification...\"",
+                placeholder: "[ Polaroid Memory 1 ]"
+            },
+            {
+                badge: "Page 02 of 03",
+                title: "Inside Jokes & Chaos 💬",
+                text: "\"From all our random gists to keeping me sane when coding gets crazy. You're literally one of a kind, no cap.\"",
+                placeholder: "[ Polaroid Memory 2 ]"
+            },
+            {
+                badge: "Page 03 of 03",
+                title: "The Birthday Wish 🎉",
+                text: "\"As you step into a new year of your life, may all your goals align. Stay happy, stay you, my absolute favorite person!\"",
+                placeholder: "[ Birthday Photo / Final ]"
             }
-        };
-        arena.appendChild(token);
-    });
-}
+        ];
 
-// Initialize mini-game on load
-window.addEventListener('DOMContentLoaded', () => {
-    initMiniGame();
-});
-let animationInitialized = false;
-function startTurtleHeartAnimation() {
-    if (animationInitialized) return;
-    animationInitialized = true;
+        let currentNotebookIndex = 0;
 
-    const canvas = document.getElementById('turtleHeartCanvas');
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    
-    let k = 0;
-    const leftPoints = [];
-    const rightPoints = [];
+        function renderNotebookPage() {
+            const sheet = document.getElementById('notebookSheet');
+            sheet.style.opacity = '0.4';
+            sheet.style.transform = 'scale(0.98)';
 
-    function getHeartPoint(kValue) {
-        const x = 15 * Math.pow(Math.sin(kValue), 3);
-        const y = -(12 * Math.cos(kValue) - 5 * Math.cos(2 * kValue) - 2 * Math.cos(3 * kValue) - Math.cos(4 * kValue));
-        return { x, y };
-    }
+            setTimeout(() => {
+                const page = notebookPages[currentNotebookIndex];
+                document.getElementById('pageBadge').textContent = page.badge;
+                document.getElementById('pageTitle').textContent = page.title;
+                document.getElementById('pageText').textContent = page.text;
+                document.getElementById('pageImagePlaceholder').textContent = page.placeholder;
 
-    function drawTurtleHeart() {
-        // Smooth trailing fade effect
-        ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
+                const dots = document.querySelectorAll('.dot-indicator');
+                dots.forEach((dot, idx) => {
+                    if (idx === currentNotebookIndex) {
+                        dot.className = "w-6 h-2.5 rounded-full bg-pink-500 dot-indicator transition-all";
+                    } else {
+                        dot.className = "w-2.5 h-2.5 rounded-full bg-white/20 dot-indicator transition-all";
+                    }
+                });
 
-        ctx.save();
-        ctx.translate(canvas.width / 2, canvas.height / 2 + 15);
-        const scale = 8;
-
-        // Sleeker, slower speed increment for a smoother flow
-        if (k < Math.PI) {
-            k += 0.03; // Slower, premium drawing speed
-            
-            // Calculate dual-forking points (Left & Right sides moving toward bottom center)
-            const pLeft = getHeartPoint(k);
-            const pRight = getHeartPoint(-k);
-
-            leftPoints.push({ x: pLeft.x * scale, y: pLeft.y * scale });
-            rightPoints.push({ x: pRight.x * scale, y: pRight.y * scale });
-        } else {
-            // Reset loop gracefully for a continuous animation cycle
-            k = 0;
-            leftPoints.length = 0;
-            rightPoints.length = 0;
+                sheet.style.opacity = '1';
+                sheet.style.transform = 'scale(1)';
+            }, 180);
         }
 
-        ctx.lineWidth = 1.2;
-
-        // Draw left fork lines flowing into position
-        ctx.strokeStyle = "#ec4899"; // Hot pink
-        leftPoints.forEach((pt, index) => {
-            if (index % 2 === 0) { // Thin out density slightly for a cleaner look
-                ctx.beginPath();
-                ctx.moveTo(0, -20); // Forks from upper center origin
-                ctx.lineTo(pt.x, pt.y);
-                ctx.stroke();
+        function nextNotebookPage() {
+            if (currentNotebookIndex < notebookPages.length - 1) {
+                currentNotebookIndex++;
+            } else {
+                currentNotebookIndex = 0;
             }
-        });
+            renderNotebookPage();
+        }
 
-        // Draw right fork lines meeting at the bottom middle
-        ctx.strokeStyle = "#f472b6"; // Lighter pink accent
-        rightPoints.forEach((pt, index) => {
-            if (index % 2 === 0) {
-                ctx.beginPath();
-                ctx.moveTo(0, -20); // Forks from upper center origin
-                ctx.lineTo(pt.x, pt.y);
-                ctx.stroke();
+        function prevNotebookPage() {
+            if (currentNotebookIndex > 0) {
+                currentNotebookIndex--;
+                renderNotebookPage();
             }
-        });
+        }
 
-        ctx.restore();
-        requestAnimationFrame(drawTurtleHeart);
-    }
+        // Mini-Game Interactive Logic
+        const memorySecrets = [
+            "Secret #1: You have the most contagious laughter ever! 😄",
+            "Secret #2: Your support means everything, even when coding gets stressful. 💻",
+            "Secret #3: You're officially my favorite person in the entire universe. 🌟",
+            "Secret #4: Here's to a year filled with wins and absolute happiness! 🥂"
+        ];
 
-    drawTurtleHeart();
-}
+        let unlockedCount = 0;
 
-// Trigger it when dashboard reveals
-window.addEventListener('DOMContentLoaded', () => {
-    startTurtleHeartAnimation();
-});
-// Use a single unified color or gradient for both sides so it blends seamlessly
-        ctx.strokeStyle = "#ec4899"; // Unified hot pink
-        ctx.lineWidth = 1.3;
+        function initMiniGame() {
+            const arena = document.getElementById('gameArena');
+            arena.innerHTML = "";
 
-        // Draw left fork lines
-        leftPoints.forEach((pt, index) => {
-            if (index % 2 === 0) {
-                ctx.beginPath();
-                ctx.moveTo(0, -20);
-                ctx.lineTo(pt.x, pt.y);
-                ctx.stroke();
+            memorySecrets.forEach((secret, index) => {
+                const token = document.createElement('div');
+                token.className = "w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-xl shadow-lg shadow-pink-600/30 cursor-pointer transform hover:scale-110 active:scale-95 transition-all animate-bounce";
+                token.style.animationDelay = `${index * 0.2}s`;
+                token.innerHTML = "💖";
+                
+                token.onclick = () => {
+                    document.getElementById('gameMessageBox').textContent = `"${secret}"`;
+                    if (!token.classList.contains('unlocked')) {
+                        token.classList.add('unlocked', 'opacity-40', 'grayscale');
+                        token.classList.remove('animate-bounce');
+                        unlockedCount++;
+                        document.getElementById('memoryScore').textContent = unlockedCount;
+                        if (unlockedCount === memorySecrets.length) {
+                            document.getElementById('gameMessageBox').textContent = "🎉 All secret memories unlocked! You're amazing!";
+                        }
+                    }
+                };
+                arena.appendChild(token);
+            });
+        }
+
+        // Python Turtle Style Code-Generated Heart Canvas Script (Unified Color & Symmetric Flow)
+        let animationInitialized = false;
+        function startTurtleHeartAnimation() {
+            if (animationInitialized) return;
+            animationInitialized = true;
+
+            const canvas = document.getElementById('turtleHeartCanvas');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            
+            let k = 0;
+            const leftPoints = [];
+            const rightPoints = [];
+
+            function getHeartPoint(kValue) {
+                const x = 15 * Math.pow(Math.sin(kValue), 3);
+                const y = -(12 * Math.cos(kValue) - 5 * Math.cos(2 * kValue) - 2 * Math.cos(3 * kValue) - Math.cos(4 * kValue));
+                return { x, y };
             }
-        });
 
-        // Draw right fork lines using the exact same style
-        rightPoints.forEach((pt, index) => {
-            if (index % 2 === 0) {
-                ctx.beginPath();
-                ctx.moveTo(0, -20);
-                ctx.lineTo(pt.x, pt.y);
-                ctx.stroke();
+            function drawTurtleHeart() {
+                ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                ctx.save();
+                ctx.translate(canvas.width / 2, canvas.height / 2 + 15);
+                const scale = 8;
+
+                if (k < Math.PI) {
+                    k += 0.03; // Sleek, smooth pacing
+                    const pLeft = getHeartPoint(k);
+                    const pRight = getHeartPoint(-k);
+
+                    leftPoints.push({ x: pLeft.x * scale, y: pLeft.y * scale });
+                    rightPoints.push({ x: pRight.x * scale, y: pRight.y * scale });
+                } else {
+                    k = 0;
+                    leftPoints.length = 0;
+                    rightPoints.length = 0;
+                }
+
+                ctx.lineWidth = 1.3;
+                ctx.strokeStyle = "#ec4899"; // Unified hot pink color blending seamlessly
+
+                leftPoints.forEach((pt, index) => {
+                    if (index % 2 === 0) {
+                        ctx.beginPath();
+                        ctx.moveTo(0, -20);
+                        ctx.lineTo(pt.x, pt.y);
+                        ctx.stroke();
+                    }
+                });
+
+                rightPoints.forEach((pt, index) => {
+                    if (index % 2 === 0) {
+                        ctx.beginPath();
+                        ctx.moveTo(0, -20);
+                        ctx.lineTo(pt.x, pt.y);
+                        ctx.stroke();
+                    }
+                });
+
+                ctx.restore();
+                requestAnimationFrame(drawTurtleHeart);
             }
+
+            drawTurtleHeart();
+        }
+
+        // Initialize mini-game on load
+        window.addEventListener('DOMContentLoaded', () => {
+            initMiniGame();
         });
     </script>
 </body>
