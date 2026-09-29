@@ -8,11 +8,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap'); /* Handwritten font for notebook */
+        @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap');
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background: linear-gradient(135deg, #0f051d 0%, #1a0b2e 50%, #3b1443 100%);
+            -webkit-tap-highlight-color: transparent;
         }
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
@@ -27,66 +28,66 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4 overflow-x-hidden relative">
+<body class="min-h-screen flex items-center justify-center p-3 sm:p-6 overflow-x-hidden relative">
 
     <!-- Ambient Background Glow Effects -->
-    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-pink-600/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-1/4 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-pink-600/20 rounded-full blur-3xl pointer-events-none"></div>
 
     <!-- Lock Screen Container -->
-    <div id="lockScreen" class="w-full max-w-md bg-white/10 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-2xl text-center relative z-30 transition-all duration-700">
+    <div id="lockScreen" class="w-full max-w-sm sm:max-w-md bg-white/10 backdrop-blur-xl border border-white/10 p-6 sm:p-8 rounded-3xl shadow-2xl text-center relative z-30 transition-all duration-700">
         
         <!-- Top Icon / Mini Image Frame -->
-        <div class="mx-auto w-20 h-20 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-500 p-0.5 mb-6 shadow-lg shadow-purple-900/40">
+        <div class="mx-auto w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-500 p-0.5 mb-5 shadow-lg shadow-purple-900/40">
             <div class="w-full h-full bg-[#160826] rounded-2xl flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 sm:h-8 sm:w-8 text-pink-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
             </div>
         </div>
 
-        <h1 class="text-2xl font-bold text-white tracking-wide mb-2">Private Vault</h1>
-        <p class="text-purple-200/70 text-sm mb-6">Enter the secure passcode to unlock this experience.</p>
+        <h1 class="text-xl sm:text-2xl font-bold text-white tracking-wide mb-2">Private Vault</h1>
+        <p class="text-purple-200/70 text-xs sm:text-sm mb-5">Enter the secure passcode to unlock this experience.</p>
 
         <!-- Password Display Dots / Input Box -->
-        <div id="passcodeBox" class="flex justify-center gap-3 mb-6">
-            <div class="w-12 h-14 rounded-xl bg-black/30 border border-purple-500/30 flex items-center justify-center text-white text-xl font-bold dot"></div>
-            <div class="w-12 h-14 rounded-xl bg-black/30 border border-purple-500/30 flex items-center justify-center text-white text-xl font-bold dot"></div>
-            <div class="w-12 h-14 rounded-xl bg-black/30 border border-purple-500/30 flex items-center justify-center text-white text-xl font-bold dot"></div>
-            <div class="w-12 h-14 rounded-xl bg-black/30 border border-purple-500/30 flex items-center justify-center text-white text-xl font-bold dot"></div>
+        <div id="passcodeBox" class="flex justify-center gap-2.5 sm:gap-3 mb-6">
+            <div class="w-10 h-12 sm:w-12 sm:h-14 rounded-xl bg-black/30 border border-purple-500/30 flex items-center justify-center text-white text-lg sm:text-xl font-bold dot"></div>
+            <div class="w-10 h-12 sm:w-12 sm:h-14 rounded-xl bg-black/30 border border-purple-500/30 flex items-center justify-center text-white text-lg sm:text-xl font-bold dot"></div>
+            <div class="w-10 h-12 sm:w-12 sm:h-14 rounded-xl bg-black/30 border border-purple-500/30 flex items-center justify-center text-white text-lg sm:text-xl font-bold dot"></div>
+            <div class="w-10 h-12 sm:w-12 sm:h-14 rounded-xl bg-black/30 border border-purple-500/30 flex items-center justify-center text-white text-lg sm:text-xl font-bold dot"></div>
         </div>
 
         <!-- Phone-style Numeric Keypad -->
-        <div class="grid grid-cols-3 gap-3 mb-6 max-w-xs mx-auto">
-            <button onclick="pressNum(1)" class="h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-xl transition">1</button>
-            <button onclick="pressNum(2)" class="h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-xl transition">2</button>
-            <button onclick="pressNum(3)" class="h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-xl transition">3</button>
-            <button onclick="pressNum(4)" class="h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-xl transition">4</button>
-            <button onclick="pressNum(5)" class="h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-xl transition">5</button>
-            <button onclick="pressNum(6)" class="h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-xl transition">6</button>
-            <button onclick="pressNum(7)" class="h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-xl transition">7</button>
-            <button onclick="pressNum(8)" class="h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-xl transition">8</button>
-            <button onclick="pressNum(9)" class="h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-xl transition">9</button>
-            <button onclick="clearCode()" class="h-14 rounded-2xl bg-red-500/10 hover:bg-red-500/20 active:scale-95 text-red-400 text-sm font-medium transition flex items-center justify-center">Clear</button>
-            <button onclick="pressNum(0)" class="h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-xl transition">0</button>
-            <button onclick="deleteNum()" class="h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white text-sm font-medium transition flex items-center justify-center">⌫</button>
+        <div class="grid grid-cols-3 gap-2.5 sm:gap-3 mb-5 max-w-xs mx-auto">
+            <button onclick="pressNum(1)" class="h-12 sm:h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-lg sm:text-xl transition">1</button>
+            <button onclick="pressNum(2)" class="h-12 sm:h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-lg sm:text-xl transition">2</button>
+            <button onclick="pressNum(3)" class="h-12 sm:h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-lg sm:text-xl transition">3</button>
+            <button onclick="pressNum(4)" class="h-12 sm:h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-lg sm:text-xl transition">4</button>
+            <button onclick="pressNum(5)" class="h-12 sm:h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-lg sm:text-xl transition">5</button>
+            <button onclick="pressNum(6)" class="h-12 sm:h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-lg sm:text-xl transition">6</button>
+            <button onclick="pressNum(7)" class="h-12 sm:h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-lg sm:text-xl transition">7</button>
+            <button onclick="pressNum(8)" class="h-12 sm:h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-lg sm:text-xl transition">8</button>
+            <button onclick="pressNum(9)" class="h-12 sm:h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-lg sm:text-xl transition">9</button>
+            <button onclick="clearCode()" class="h-12 sm:h-14 rounded-2xl bg-red-500/10 hover:bg-red-500/20 active:scale-95 text-red-400 text-xs sm:text-sm font-medium transition flex items-center justify-center">Clear</button>
+            <button onclick="pressNum(0)" class="h-12 sm:h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white font-semibold text-lg sm:text-xl transition">0</button>
+            <button onclick="deleteNum()" class="h-12 sm:h-14 rounded-2xl bg-white/5 hover:bg-white/15 active:scale-95 text-white text-xs sm:text-sm font-medium transition flex items-center justify-center">⌫</button>
         </div>
 
-        <!-- Hint Section -->
         <div>
             <button onclick="toggleHint()" class="text-xs text-purple-300/80 hover:text-pink-400 transition underline underline-offset-4">Need a hint?</button>
             <p id="hintText" class="hidden text-xs text-pink-300 mt-2 italic bg-pink-500/10 py-1.5 px-3 rounded-lg border border-pink-500/20">Clue: The current year we are writing history in ✨</p>
         </div>
     </div>
 
-    <!-- Main Website Dashboard (Relative w-full prevents layout trapping & overlaps) -->
-    <div id="mainDashboard" class="hidden relative w-full z-20 bg-[#0f051d] flex flex-col items-center p-4 lg:p-10 transition-all duration-1000">
+    <!-- Main Website Dashboard -->
+    <div id="mainDashboard" class="hidden relative w-full z-20 bg-[#0f051d] flex flex-col items-center px-3 sm:px-6 py-6 sm:py-10 transition-all duration-1000">
 
-        <!-- SECTION 1: Hero Section (Split Grid Layout) -->
-        <div class="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center py-16 lg:py-24">
-            <!-- LEFT SIDE: Enlarged Disney Video Asset (7 cols) -->
+        <!-- SECTION 1: Hero Section (Fully Mobile Responsive Grid) -->
+        <div class="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center py-8 sm:py-16">
+            
+            <!-- LEFT SIDE: Disney Video Asset -->
             <div class="w-full lg:col-span-7 flex justify-center items-center">
-                <div class="relative w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl shadow-purple-950/60 border border-purple-500/30 bg-black/50">
+                <div class="relative w-full max-w-xl rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl shadow-purple-950/60 border border-purple-500/30 bg-black/50">
                     <video autoplay muted loop playsinline class="w-full h-auto object-cover">
                         <source src="./media/Anita.mp4" type="video/mp4">
                         Your browser does not support the video tag.
@@ -94,108 +95,100 @@
                 </div>
             </div>
 
-            <!-- RIGHT SIDE: Vibe Text & Code-Drawn Heart Canvas (5 cols) -->
-            <div class="w-full lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left justify-center space-y-6">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-300 text-xs font-semibold tracking-wider uppercase">
+            <!-- RIGHT SIDE: Vibe Text & Canvas Animation -->
+            <div class="w-full lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left justify-center space-y-4 sm:space-y-6">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-300 text-[11px] sm:text-xs font-semibold tracking-wider uppercase">
                     <span>✨ Special Delivery</span>
                 </div>
                 
-                <h2 class="text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight">
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-snug sm:leading-tight">
                     Built with <span class="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Pure Love</span> & Code.
                 </h2>
                 
-                <p class="text-purple-200/80 text-sm lg:text-base max-w-md">
+                <p class="text-purple-200/80 text-xs sm:text-base max-w-md">
                     Every single line, animation, and memory packed into this space is dedicated to celebrating you today and always.
                 </p>
 
-                <!-- Python Turtle Style Code-Generated Heart Canvas -->
-                <div class="relative w-full max-w-xs h-56 bg-black/60 border border-purple-500/30 rounded-2xl flex items-center justify-center p-2 overflow-hidden shadow-xl shadow-purple-950/50">
+                <!-- Responsive Turtle Heart Canvas -->
+                <div class="relative w-full max-w-[260px] sm:max-w-xs h-48 sm:h-56 bg-black/60 border border-purple-500/30 rounded-2xl flex items-center justify-center p-2 overflow-hidden shadow-xl shadow-purple-950/50 mx-auto lg:mx-0">
                     <canvas id="turtleHeartCanvas" width="280" height="220" class="w-full h-full object-contain"></canvas>
                 </div>
             </div>
         </div>
 
         <!-- SECTION 2: Interactive Journal / Notebook -->
-        <div class="w-full max-w-4xl py-16 flex flex-col items-center">
+        <div class="w-full max-w-4xl py-10 sm:py-16 flex flex-col items-center">
             
-            <div class="text-center mb-8">
-                <span class="text-pink-400 text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Interactive Journal</span>
-                <h3 class="text-3xl font-bold text-white mt-3">Pages From Our Story</h3>
-                <p class="text-xs text-purple-300/70 mt-1">Tap the right corner or edge to flip the page 📖</p>
+            <div class="text-center mb-6 sm:mb-8 px-2">
+                <span class="text-pink-400 text-[11px] sm:text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">Interactive Journal</span>
+                <h3 class="text-2xl sm:text-3xl font-bold text-white mt-2.5 sm:mt-3">Pages From Our Story</h3>
+                <p class="text-[11px] sm:text-xs text-purple-300/70 mt-1">Tap the right corner or edge to flip the page 📖</p>
             </div>
 
-            <!-- The Realistic Book Shell with Stacked Sheet Illusion -->
+            <!-- Notebook Shell -->
             <div class="relative w-full max-w-3xl">
-                
-                <!-- Stacked page layers underneath -->
                 <div class="absolute -bottom-2 -right-2 inset-0 bg-purple-950/40 rounded-3xl border border-purple-500/20 pointer-events-none"></div>
-                <div class="absolute -bottom-4 -right-4 inset-0 bg-purple-950/20 rounded-3xl border border-purple-500/10 pointer-events-none"></div>
-
-                <!-- Main Active Notebook Sheet -->
-                <div id="notebookSheet" class="relative w-full bg-[#1b0a2e] border border-purple-500/30 rounded-3xl p-8 lg:p-12 shadow-2xl backdrop-blur-md overflow-hidden transition-all duration-500 select-none">
+                
+                <div id="notebookSheet" class="relative w-full bg-[#1b0a2e] border border-purple-500/30 rounded-2xl sm:rounded-3xl p-5 sm:p-10 shadow-2xl backdrop-blur-md overflow-hidden transition-all duration-500 select-none">
                     
-                    <!-- Realistic Curled Dog-Ear (Top Right Corner) -->
-                    <div onclick="nextNotebookPage()" title="Flip page" class="absolute top-0 right-0 w-16 h-16 cursor-pointer group z-20">
-                        <div class="absolute top-0 right-0 w-0 h-0 border-t-[48px] border-r-[48px] border-t-pink-500/30 border-r-transparent group-hover:border-t-pink-400/50 transition-all"></div>
-                        <div class="absolute top-0 right-0 w-12 h-12 bg-gradient-to-br from-purple-800 to-pink-600 rounded-bl-xl shadow-lg group-hover:scale-105 group-hover:shadow-pink-500/30 transition-transform"></div>
-                        <span class="absolute top-1.5 right-1.5 text-[10px] text-white/80 font-bold">↷</span>
+                    <!-- Dog-Ear Flip Target -->
+                    <div onclick="nextNotebookPage()" title="Flip page" class="absolute top-0 right-0 w-14 sm:w-16 h-14 sm:h-16 cursor-pointer group z-20">
+                        <div class="absolute top-0 right-0 w-0 h-0 border-t-[38px] sm:border-t-[48px] border-r-[38px] sm:border-r-[48px] border-t-pink-500/30 border-r-transparent group-hover:border-t-pink-400/50 transition-all"></div>
+                        <div class="absolute top-0 right-0 w-10 sm:w-12 h-10 sm:h-12 bg-gradient-to-br from-purple-800 to-pink-600 rounded-bl-xl shadow-lg group-hover:scale-105 transition-transform"></div>
+                        <span class="absolute top-1 right-1 text-[9px] sm:text-[10px] text-white/80 font-bold">↷</span>
                     </div>
 
-                    <!-- Page Content Layout -->
-                    <div id="notebookContent" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                        
-                        <!-- Text Story Side -->
-                        <div class="space-y-4">
+                    <!-- Content Layout -->
+                    <div id="notebookContent" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
+                        <div class="space-y-3 sm:space-y-4">
                             <div class="flex items-center gap-2">
-                                <span id="pageBadge" class="text-xs font-semibold text-pink-400 uppercase tracking-wider">Page 01 of 03</span>
-                                <div class="h-1 w-8 bg-purple-500/30 rounded"></div>
+                                <span id="pageBadge" class="text-[11px] sm:text-xs font-semibold text-pink-400 uppercase tracking-wider">Page 01 of 03</span>
+                                <div class="h-1 w-6 sm:w-8 bg-purple-500/30 rounded"></div>
                             </div>
                             
-                            <h4 id="pageTitle" class="text-2xl font-bold text-white tracking-wide">The Very Beginning ✨</h4>
+                            <h4 id="pageTitle" class="text-xl sm:text-2xl font-bold text-white tracking-wide">The Very Beginning ✨</h4>
                             
-                            <p id="pageText" class="handwritten text-2xl text-purple-100/90 leading-relaxed min-h-[120px]">
+                            <p id="pageText" class="handwritten text-xl sm:text-2xl text-purple-100/90 leading-relaxed min-h-[100px] sm:min-h-[120px]">
                                 "I still remember the exact day we started talking. Didn't have any idea you'd turn out to be my absolute favorite notification..."
                             </p>
                         </div>
 
-                        <!-- Picture Side -->
+                        <!-- Polaroid Side -->
                         <div class="flex justify-center">
-                            <div class="w-full max-w-xs bg-white/5 border border-purple-400/20 p-3 rounded-2xl shadow-xl transform rotate-1 hover:rotate-0 transition-transform duration-300">
-                                <div id="pageImagePlaceholder" class="w-full h-64 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-200 text-sm font-semibold tracking-wide border border-purple-500/20">
+                            <div class="w-full max-w-[240px] sm:max-w-xs bg-white/5 border border-purple-400/20 p-2.5 sm:p-3 rounded-2xl shadow-xl transform rotate-1">
+                                <div id="pageImagePlaceholder" class="w-full h-48 sm:h-64 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-200 text-xs sm:text-sm font-semibold tracking-wide border border-purple-500/20">
                                     [ Polaroid Memory 1 ]
                                 </div>
                             </div>
                         </div>
-
                     </div>
 
-                    <!-- Page Flip Click Targets -->
-                    <div onclick="prevNotebookPage()" class="absolute left-0 top-0 bottom-0 w-12 cursor-w-resize hover:bg-white/[0.02] transition" title="Previous Page"></div>
-                    <div onclick="nextNotebookPage()" class="absolute right-0 top-16 bottom-0 w-12 cursor-e-resize hover:bg-white/[0.02] transition" title="Next Page"></div>
+                    <!-- Touch Navigation Triggers -->
+                    <div onclick="prevNotebookPage()" class="absolute left-0 top-0 bottom-0 w-10 cursor-pointer" title="Previous"></div>
+                    <div onclick="nextNotebookPage()" class="absolute right-0 top-14 bottom-0 w-10 cursor-pointer" title="Next"></div>
 
-                    <!-- Page Dot Indicators -->
-                    <div class="flex justify-center items-center gap-2 mt-8 pt-4 border-t border-purple-500/10">
-                        <span class="w-6 h-2.5 rounded-full bg-pink-500 dot-indicator transition-all"></span>
-                        <span class="w-2.5 h-2.5 rounded-full bg-white/20 dot-indicator transition-all"></span>
-                        <span class="w-2.5 h-2.5 rounded-full bg-white/20 dot-indicator transition-all"></span>
+                    <!-- Dots -->
+                    <div class="flex justify-center items-center gap-2 mt-6 sm:mt-8 pt-4 border-t border-purple-500/10">
+                        <span class="w-5 sm:w-6 h-2 rounded-full bg-pink-500 dot-indicator transition-all"></span>
+                        <span class="w-2 h-2 rounded-full bg-white/20 dot-indicator transition-all"></span>
+                        <span class="w-2 h-2 rounded-full bg-white/20 dot-indicator transition-all"></span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SECTION 3: The Heart Vault Frame Section -->
-        <div class="w-full max-w-4xl py-16 flex flex-col items-center">
-            
-            <div class="text-center mb-8">
-                <span class="text-pink-400 text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Secure Encryption</span>
-                <h3 class="text-3xl font-bold text-white mt-3">The Secret Heart Vault</h3>
-                <p class="text-xs text-purple-300/80 mt-2 italic bg-purple-900/30 py-1.5 px-4 rounded-xl border border-purple-500/20 inline-block">
+        <!-- SECTION 3: Heart Vault Frame Section -->
+        <div class="w-full max-w-4xl py-10 sm:py-16 flex flex-col items-center">
+            <div class="text-center mb-6 sm:mb-8 px-2">
+                <span class="text-pink-400 text-[11px] sm:text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Secure Encryption</span>
+                <h3 class="text-2xl sm:text-3xl font-bold text-white mt-2.5 sm:mt-3">The Secret Heart Vault</h3>
+                <p class="text-[11px] sm:text-xs text-purple-300/80 mt-2 italic bg-purple-900/30 py-1.5 px-3.5 sm:px-4 rounded-xl border border-purple-500/20 inline-block">
                     🔐 Hint: Enter the encrypted passcode to unlock the hidden message inside...
                 </p>
             </div>
 
-            <div class="w-full bg-[#160826]/90 backdrop-blur-xl border border-purple-500/30 rounded-3xl p-4 lg:p-6 shadow-2xl overflow-hidden relative">
-                <div class="w-full h-[550px] rounded-2xl overflow-hidden border border-purple-500/20 shadow-inner bg-black/50">
+            <div class="w-full bg-[#160826]/90 backdrop-blur-xl border border-purple-500/30 rounded-2xl sm:rounded-3xl p-3 sm:p-6 shadow-2xl overflow-hidden">
+                <div class="w-full h-[450px] sm:h-[550px] rounded-xl sm:rounded-2xl overflow-hidden border border-purple-500/20 bg-black/50">
                     <iframe 
                         src="https://heart-vault.vercel.app/?data=U2FsdGVkX1%2FPru7NVJNIzHOnTV4ljOcYIetKpePckyOT4zL8Jzn4r3%2FhCxYG59y6T5H%2FQTBpGN5JpSo%2FNL3s3HlrF4j9p5RM5ZWF28E6uhjBkJPa8pJgVSGWppJdsbeToOL1X8vZT6UzDktAXMn7lnDx1Ls5swUKaN89%2FQHuAos%3D" 
                         class="w-full h-full border-0" 
@@ -206,82 +199,72 @@
         </div>
 
         <!-- SECTION 4: Media Gallery Showcase -->
-        <div class="w-full max-w-5xl py-16 flex flex-col items-center">
-            
-            <div class="text-center mb-10">
-                <span class="text-pink-400 text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Memory Lane</span>
-                <h3 class="text-3xl font-bold text-white mt-3">Moments & Highlights</h3>
-                <p class="text-xs text-purple-300/70 mt-1">A curated collection of snapshots and clips 📸</p>
+        <div class="w-full max-w-5xl py-10 sm:py-16 flex flex-col items-center">
+            <div class="text-center mb-8 sm:mb-10 px-2">
+                <span class="text-pink-400 text-[11px] sm:text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Memory Lane</span>
+                <h3 class="text-2xl sm:text-3xl font-bold text-white mt-2.5 sm:mt-3">Moments & Highlights</h3>
+                <p class="text-[11px] sm:text-xs text-purple-300/70 mt-1">A curated collection of snapshots and clips 📸</p>
             </div>
 
-            <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 px-4">
-                
-                <!-- Gallery Item 1 -->
-                <div class="group relative bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="w-full h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 overflow-hidden flex items-center justify-center text-purple-300 text-sm font-medium border border-purple-500/20 relative">
+            <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 px-2 sm:px-4">
+                <div class="bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl">
+                    <div class="w-full h-52 sm:h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-300 text-xs sm:text-sm font-medium border border-purple-500/20">
                         <span>[ Memory Snapshot 1 ]</span>
                     </div>
-                    <div class="mt-3 px-1 flex justify-between items-center">
-                        <span class="text-xs text-purple-200/80 font-medium">✨ Unforgettable Vibes</span>
-                        <span class="text-[10px] text-pink-400">01</span>
+                    <div class="mt-3 px-1 flex justify-between items-center text-xs text-purple-200/80">
+                        <span>✨ Unforgettable Vibes</span>
+                        <span class="text-pink-400">01</span>
                     </div>
                 </div>
 
-                <!-- Gallery Item 2 -->
-                <div class="group relative bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-1">
-                    <div class="w-full h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 overflow-hidden flex items-center justify-center text-purple-300 text-sm font-medium border border-purple-500/20 relative">
+                <div class="bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl">
+                    <div class="w-full h-52 sm:h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-300 text-xs sm:text-sm font-medium border border-purple-500/20">
                         <span>[ Memory Snapshot 2 ]</span>
                     </div>
-                    <div class="mt-3 px-1 flex justify-between items-center">
-                        <span class="text-xs text-purple-200/80 font-medium">✨ Pure Happiness</span>
-                        <span class="text-[10px] text-pink-400">02</span>
+                    <div class="mt-3 px-1 flex justify-between items-center text-xs text-purple-200/80">
+                        <span>✨ Pure Happiness</span>
+                        <span class="text-pink-400">02</span>
                     </div>
                 </div>
 
-                <!-- Gallery Item 3 -->
-                <div class="group relative bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl hover:border-pink-500/50 transition-all duration-300 transform hover:-translate-y-1 sm:col-span-2 md:col-span-1">
-                    <div class="w-full h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 overflow-hidden flex items-center justify-center text-purple-300 text-sm font-medium border border-purple-500/20 relative">
+                <div class="bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl sm:col-span-2 md:col-span-1">
+                    <div class="w-full h-52 sm:h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-300 text-xs sm:text-sm font-medium border border-purple-500/20">
                         <span>[ Memory Snapshot 3 ]</span>
                     </div>
-                    <div class="mt-3 px-1 flex justify-between items-center">
-                        <span class="text-xs text-purple-200/80 font-medium">✨ Favorite Moments</span>
-                        <span class="text-[10px] text-pink-400">03</span>
+                    <div class="mt-3 px-1 flex justify-between items-center text-xs text-purple-200/80">
+                        <span>✨ Favorite Moments</span>
+                        <span class="text-pink-400">03</span>
                     </div>
                 </div>
-
             </div>
         </div>
 
-        <!-- SECTION 5: Catch-the-Memories Mini-Game & Final Birthday Wish -->
-        <div class="w-full max-w-4xl py-16 flex flex-col items-center mb-12">
-            
-            <div class="text-center mb-8">
-                <span class="text-pink-400 text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Interactive Finale</span>
-                <h3 class="text-3xl font-bold text-white mt-3">Catch The Memories 💖</h3>
-                <p class="text-xs text-purple-300/80 mt-1">Tap the floating hearts below to unlock your hidden celebration messages!</p>
+        <!-- SECTION 5: Mini-Game & Finale -->
+        <div class="w-full max-w-4xl py-10 sm:py-16 flex flex-col items-center mb-8 px-2">
+            <div class="text-center mb-6 sm:mb-8">
+                <span class="text-pink-400 text-[11px] sm:text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Interactive Finale</span>
+                <h3 class="text-2xl sm:text-3xl font-bold text-white mt-2.5 sm:mt-3">Catch The Memories 💖</h3>
+                <p class="text-[11px] sm:text-xs text-purple-300/80 mt-1">Tap the floating hearts below to unlock your hidden celebration messages!</p>
             </div>
 
-            <div class="w-full bg-[#160826]/90 backdrop-blur-xl border border-purple-500/30 rounded-3xl p-6 lg:p-8 shadow-2xl relative min-h-[300px] flex flex-col items-center justify-center overflow-hidden">
-                <div class="absolute top-4 left-6 text-xs text-purple-300/80 font-medium">
+            <div class="w-full bg-[#160826]/90 backdrop-blur-xl border border-purple-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-8 shadow-2xl relative min-h-[260px] sm:min-h-[300px] flex flex-col items-center justify-center">
+                <div class="absolute top-3 left-4 sm:top-4 sm:left-6 text-[11px] sm:text-xs text-purple-300/80 font-medium">
                     Unlocked: <span id="memoryScore" class="text-pink-400 font-bold">0</span> / 4
                 </div>
 
-                <div id="gameArena" class="w-full h-48 relative flex items-center justify-around flex-wrap gap-4 p-4"></div>
+                <div id="gameArena" class="w-full h-40 sm:h-48 relative flex items-center justify-around flex-wrap gap-3 sm:gap-4 p-2 sm:p-4 mt-6 sm:mt-0"></div>
 
-                <div id="gameMessageBox" class="w-full max-w-lg bg-purple-950/60 border border-pink-500/30 rounded-2xl p-4 text-center text-purple-100 text-sm italic min-h-[60px] flex items-center justify-center transition-all duration-300">
+                <div id="gameMessageBox" class="w-full max-w-lg bg-purple-950/60 border border-pink-500/30 rounded-xl sm:rounded-2xl p-3 sm:p-4 text-center text-purple-100 text-xs sm:text-sm italic min-h-[50px] sm:min-h-[60px] flex items-center justify-center">
                     "Tap any floating heart above to unlock a special secret note..."
                 </div>
             </div>
 
-            <div class="w-full mt-12 bg-gradient-to-tr from-purple-900/40 via-pink-900/30 to-[#160826] border border-pink-500/40 rounded-3xl p-8 lg:p-12 shadow-2xl text-center relative overflow-hidden">
-                <div class="absolute -top-10 -right-10 w-40 h-40 bg-pink-500/10 rounded-full blur-2xl pointer-events-none"></div>
-                
-                <h3 class="text-3xl lg:text-4xl font-extrabold text-white mb-4">Happy Birthday, Anita! 🎉</h3>
-                <p class="text-purple-200/90 text-base max-w-xl mx-auto leading-relaxed mb-6">
+            <div class="w-full mt-8 sm:mt-12 bg-gradient-to-tr from-purple-900/40 via-pink-900/30 to-[#160826] border border-pink-500/40 rounded-2xl sm:rounded-3xl p-6 sm:p-12 shadow-2xl text-center relative overflow-hidden">
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white mb-3 sm:mb-4">Happy Birthday, Anita! 🎉</h3>
+                <p class="text-purple-200/90 text-xs sm:text-base max-w-xl mx-auto leading-relaxed mb-5 sm:mb-6">
                     Thank you for being such an incredible part of my life. May this new year bring you endless success, unbounded happiness, and everything your heart desires. Cheers to more amazing memories! 🥂✨
                 </p>
-
-                <div class="inline-block px-6 py-2 rounded-full bg-white/5 border border-purple-400/20 text-pink-300 text-xs font-semibold tracking-wider uppercase">
+                <div class="inline-block px-5 py-2 rounded-full bg-white/5 border border-purple-400/20 text-pink-300 text-[10px] sm:text-xs font-semibold tracking-wider uppercase">
                     Built with 💜 by Your Favorite Developer
                 </div>
             </div>
@@ -311,9 +294,7 @@
             if (enteredCode.length < 4) {
                 enteredCode += num;
                 updateDisplay();
-                if (enteredCode.length === 4) {
-                    checkPasscode();
-                }
+                if (enteredCode.length === 4) checkPasscode();
             }
         }
 
@@ -337,7 +318,7 @@
                         lockCard.classList.add('hidden');
                         const dashboard = document.getElementById('mainDashboard');
                         dashboard.classList.remove('hidden');
-                        startTurtleHeartAnimation(); // Trigger canvas once unlocked
+                        startTurtleHeartAnimation(); 
                     }, 400);
                 }, 200);
             } else {
@@ -354,7 +335,6 @@
             hint.classList.toggle('hidden');
         }
 
-        // Notebook Scrapbook Page Flipping Logic
         const notebookPages = [
             {
                 badge: "Page 01 of 03",
@@ -393,9 +373,9 @@
                 const dots = document.querySelectorAll('.dot-indicator');
                 dots.forEach((dot, idx) => {
                     if (idx === currentNotebookIndex) {
-                        dot.className = "w-6 h-2.5 rounded-full bg-pink-500 dot-indicator transition-all";
+                        dot.className = "w-5 sm:w-6 h-2 rounded-full bg-pink-500 dot-indicator transition-all";
                     } else {
-                        dot.className = "w-2.5 h-2.5 rounded-full bg-white/20 dot-indicator transition-all";
+                        dot.className = "w-2 h-2 rounded-full bg-white/20 dot-indicator transition-all";
                     }
                 });
 
@@ -405,11 +385,7 @@
         }
 
         function nextNotebookPage() {
-            if (currentNotebookIndex < notebookPages.length - 1) {
-                currentNotebookIndex++;
-            } else {
-                currentNotebookIndex = 0;
-            }
+            currentNotebookIndex = (currentNotebookIndex < notebookPages.length - 1) ? currentNotebookIndex + 1 : 0;
             renderNotebookPage();
         }
 
@@ -420,7 +396,6 @@
             }
         }
 
-        // Mini-Game Interactive Logic
         const memorySecrets = [
             "Secret #1: You have the most contagious laughter ever! 😄",
             "Secret #2: Your support means everything, even when coding gets stressful. 💻",
@@ -436,7 +411,7 @@
 
             memorySecrets.forEach((secret, index) => {
                 const token = document.createElement('div');
-                token.className = "w-14 h-14 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-xl shadow-lg shadow-pink-600/30 cursor-pointer transform hover:scale-110 active:scale-95 transition-all animate-bounce";
+                token.className = "w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-tr from-purple-600 to-pink-500 flex items-center justify-center text-lg sm:text-xl shadow-lg shadow-pink-600/30 cursor-pointer transform hover:scale-110 active:scale-95 transition-all animate-bounce";
                 token.style.animationDelay = `${index * 0.2}s`;
                 token.innerHTML = "💖";
                 
@@ -456,7 +431,6 @@
             });
         }
 
-        // Python Turtle Style Code-Generated Heart Canvas Script (Unified Color & Symmetric Flow)
         let animationInitialized = false;
         function startTurtleHeartAnimation() {
             if (animationInitialized) return;
@@ -482,10 +456,10 @@
 
                 ctx.save();
                 ctx.translate(canvas.width / 2, canvas.height / 2 + 15);
-                const scale = 8;
+                const scale = 7.5;
 
                 if (k < Math.PI) {
-                    k += 0.03; // Sleek, smooth pacing
+                    k += 0.03;
                     const pLeft = getHeartPoint(k);
                     const pRight = getHeartPoint(-k);
 
@@ -497,8 +471,8 @@
                     rightPoints.length = 0;
                 }
 
-                ctx.lineWidth = 1.3;
-                ctx.strokeStyle = "#ec4899"; // Unified hot pink color blending seamlessly
+                ctx.lineWidth = 1.2;
+                ctx.strokeStyle = "#ec4899";
 
                 leftPoints.forEach((pt, index) => {
                     if (index % 2 === 0) {
@@ -525,7 +499,6 @@
             drawTurtleHeart();
         }
 
-        // Initialize mini-game on load
         window.addEventListener('DOMContentLoaded', () => {
             initMiniGame();
         });
