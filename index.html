@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Favorite Person | Restricted Access</title>
+    <title>For O. Nifemi | Restricted Access</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -46,8 +46,8 @@
             </div>
         </div>
 
-        <h1 class="text-xl sm:text-2xl font-bold text-white tracking-wide mb-2">Private Vault</h1>
-        <p class="text-purple-200/70 text-xs sm:text-sm mb-5">Enter the secure passcode to unlock this experience.</p>
+        <h1 class="text-xl sm:text-2xl font-bold text-white tracking-wide mb-1">Private Vault</h1>
+        <p class="text-purple-200/70 text-xs mb-5">Enter your secure passcode to unlock this experience.</p>
 
         <!-- Password Display Dots / Input Box -->
         <div id="passcodeBox" class="flex justify-center gap-2.5 sm:gap-3 mb-6">
@@ -75,21 +75,21 @@
 
         <div>
             <button onclick="toggleHint()" class="text-xs text-purple-300/80 hover:text-pink-400 transition underline underline-offset-4">Need a hint?</button>
-            <p id="hintText" class="hidden text-xs text-pink-300 mt-2 italic bg-pink-500/10 py-1.5 px-3 rounded-lg border border-pink-500/20">Clue: The current year we are writing history in ✨</p>
+            <p id="hintText" class="hidden text-xs text-pink-300 mt-2 italic bg-pink-500/10 py-1.5 px-3 rounded-lg border border-pink-500/20">Clue: You know this number more than anyone else. Think about the beginning of our story (February 9). ✨</p>
         </div>
     </div>
 
     <!-- Main Website Dashboard -->
     <div id="mainDashboard" class="hidden relative w-full z-20 bg-[#0f051d] flex flex-col items-center px-3 sm:px-6 py-6 sm:py-10 transition-all duration-1000">
 
-        <!-- SECTION 1: Hero Section (Fully Mobile Responsive Grid) -->
+        <!-- SECTION 1: Hero Section -->
         <div class="w-full max-w-7xl grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center py-8 sm:py-16">
             
-            <!-- LEFT SIDE: Disney Video Asset -->
+            <!-- LEFT SIDE: Video Asset -->
             <div class="w-full lg:col-span-7 flex justify-center items-center">
                 <div class="relative w-full max-w-xl rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl shadow-purple-950/60 border border-purple-500/30 bg-black/50">
                     <video autoplay muted loop playsinline class="w-full h-auto object-cover">
-                        <source src="./media/Anita.mp4" type="video/mp4">
+                        <source src="./media/nifemi.mp4" type="video/mp4">
                         Your browser does not support the video tag.
                     </video>
                 </div>
@@ -98,7 +98,7 @@
             <!-- RIGHT SIDE: Vibe Text & Canvas Animation -->
             <div class="w-full lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left justify-center space-y-4 sm:space-y-6">
                 <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-pink-500/10 border border-pink-500/20 text-pink-300 text-[11px] sm:text-xs font-semibold tracking-wider uppercase">
-                    <span>✨ Special Delivery</span>
+                    <span>✨ Happy Birthday O. Nifemi</span>
                 </div>
                 
                 <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-snug sm:leading-tight">
@@ -106,7 +106,7 @@
                 </h2>
                 
                 <p class="text-purple-200/80 text-xs sm:text-base max-w-md">
-                    Every single line, animation, and memory packed into this space is dedicated to celebrating you today and always.
+                    Every little piece of this page and all our memories together are dedicated to celebrating you today and always.
                 </p>
 
                 <!-- Responsive Turtle Heart Canvas -->
@@ -116,7 +116,7 @@
             </div>
         </div>
 
-        <!-- SECTION 2: Interactive Journal / Notebook -->
+        <!-- SECTION 2: Interactive Journal / Notebook (4 Pages with Local Media Images) -->
         <div class="w-full max-w-4xl py-10 sm:py-16 flex flex-col items-center">
             
             <div class="text-center mb-6 sm:mb-8 px-2">
@@ -142,22 +142,22 @@
                     <div id="notebookContent" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
                         <div class="space-y-3 sm:space-y-4">
                             <div class="flex items-center gap-2">
-                                <span id="pageBadge" class="text-[11px] sm:text-xs font-semibold text-pink-400 uppercase tracking-wider">Page 01 of 03</span>
+                                <span id="pageBadge" class="text-[11px] sm:text-xs font-semibold text-pink-400 uppercase tracking-wider">Page 01 of 04</span>
                                 <div class="h-1 w-6 sm:w-8 bg-purple-500/30 rounded"></div>
                             </div>
                             
-                            <h4 id="pageTitle" class="text-xl sm:text-2xl font-bold text-white tracking-wide">The Very Beginning ✨</h4>
+                            <h4 id="pageTitle" class="text-xl sm:text-2xl font-bold text-white tracking-wide">How I See You ✨</h4>
                             
-                            <p id="pageText" class="handwritten text-xl sm:text-2xl text-purple-100/90 leading-relaxed min-h-[100px] sm:min-h-[120px]">
-                                "I still remember the exact day we started talking. Didn't have any idea you'd turn out to be my absolute favorite notification..."
+                            <p id="pageText" class="handwritten text-lg sm:text-xl text-purple-100/90 leading-relaxed min-h-[140px] sm:min-h-[160px] overflow-y-auto">
+                                "When I look at you, I honestly see someone really special. Of course, you're beautiful, and I don't think I'll ever get tired of telling you that, but there's so much more to you than that. I see your heart, the way you care about people, the way you try to do what is right, and the way you keep pushing yourself even when things aren't always easy. I see a woman who is still growing and figuring life out, and I'm genuinely grateful that I get to be part of that journey with you."
                             </p>
                         </div>
 
                         <!-- Polaroid Side -->
                         <div class="flex justify-center">
                             <div class="w-full max-w-[240px] sm:max-w-xs bg-white/5 border border-purple-400/20 p-2.5 sm:p-3 rounded-2xl shadow-xl transform rotate-1">
-                                <div id="pageImagePlaceholder" class="w-full h-48 sm:h-64 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-200 text-xs sm:text-sm font-semibold tracking-wide border border-purple-500/20">
-                                    [ Polaroid Memory 1 ]
+                                <div id="pageImagePlaceholder" class="w-full h-48 sm:h-64 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-200 text-xs sm:text-sm font-semibold tracking-wide border border-purple-500/20 overflow-hidden">
+                                    <img src="./media/nifemi1.jpg" alt="Memory" class="w-full h-full object-cover rounded-xl">
                                 </div>
                             </div>
                         </div>
@@ -167,9 +167,10 @@
                     <div onclick="prevNotebookPage()" class="absolute left-0 top-0 bottom-0 w-10 cursor-pointer" title="Previous"></div>
                     <div onclick="nextNotebookPage()" class="absolute right-0 top-14 bottom-0 w-10 cursor-pointer" title="Next"></div>
 
-                    <!-- Dots -->
+                    <!-- Dots (4 indicators) -->
                     <div class="flex justify-center items-center gap-2 mt-6 sm:mt-8 pt-4 border-t border-purple-500/10">
                         <span class="w-5 sm:w-6 h-2 rounded-full bg-pink-500 dot-indicator transition-all"></span>
+                        <span class="w-2 h-2 rounded-full bg-white/20 dot-indicator transition-all"></span>
                         <span class="w-2 h-2 rounded-full bg-white/20 dot-indicator transition-all"></span>
                         <span class="w-2 h-2 rounded-full bg-white/20 dot-indicator transition-all"></span>
                     </div>
@@ -183,14 +184,14 @@
                 <span class="text-pink-400 text-[11px] sm:text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Secure Encryption</span>
                 <h3 class="text-2xl sm:text-3xl font-bold text-white mt-2.5 sm:mt-3">The Secret Heart Vault</h3>
                 <p class="text-[11px] sm:text-xs text-purple-300/80 mt-2 italic bg-purple-900/30 py-1.5 px-3.5 sm:px-4 rounded-xl border border-purple-500/20 inline-block">
-                    🔐 Hint: Enter the encrypted passcode to unlock the hidden message inside...
+                    🔐 Hint: Enter your favourite colour...
                 </p>
             </div>
 
             <div class="w-full bg-[#160826]/90 backdrop-blur-xl border border-purple-500/30 rounded-2xl sm:rounded-3xl p-3 sm:p-6 shadow-2xl overflow-hidden">
                 <div class="w-full h-[450px] sm:h-[550px] rounded-xl sm:rounded-2xl overflow-hidden border border-purple-500/20 bg-black/50">
                     <iframe 
-                        src="https://heart-vault.vercel.app/?data=U2FsdGVkX1%2FPru7NVJNIzHOnTV4ljOcYIetKpePckyOT4zL8Jzn4r3%2FhCxYG59y6T5H%2FQTBpGN5JpSo%2FNL3s3HlrF4j9p5RM5ZWF28E6uhjBkJPa8pJgVSGWppJdsbeToOL1X8vZT6UzDktAXMn7lnDx1Ls5swUKaN89%2FQHuAos%3D" 
+                        src="https://heart-vault.vercel.app/?data=U2FsdGVkX1%2F0EUpKseuCF3uASk04Wmbtn0WFsfzd4rx%2FFcvToZJ3DD%2FxA%2FFLPzf8WwImga4c4K%2FLDn2dtFvULk8cj6LofDQt2%2BZyiwp%2FTzA2IrSROjHoGa9zons%2BEuqczpd6fPxwC04f6qBO7ueAIiTGn1MV72uzWlnp824WbHhjMUvSpN%2BK9wScutJnucvl88QotBxijZpeSqe%2FlY5obZRbe%2FX7RoJ0C5%2FGNGPdhdx%2F0SIb3SEJw9lx3oaYxw%2Fsw1dGZqmfYp4j3HoKrSnsylyDUZm%2BR%2F8miLeZGkHTVl0LOfY2A4Feq8Sqy13%2BhwL4T0OmQQQBqNBHDzUQQ%2BKoP6fEUllo4MHW5ggheA5jH3B30Ogd7MeqosB9bCycd12M0blW0Iga85xpAjySFArZO1QcGu8UXu8844FIMm1j0nZ2YbNIT%2FCHbn5qtXXY3V3lqnsEpBdckUumBAmxoPx43lT%2Fc1X7%2BjDSdKoSmBfIA%2F2FRSuHtOuRiOHBI1KaiekcckGwC74IO8ZnNEPX3VujsMM04xTN%2BigGiWjHOJboEkdHtiEb8DflDMPeK45bln8gzn69dlFxuoE0wHU%2Fgl4c5mLPObIwwUGY1%2BPHK9NvGSRT2hq0DU4mb19jS%2FEQVBFdwoP3C74g5w2VUeUYV2ujWTioYD4xSAPiSUiomNIpyzJCljoKxWvpkIhOvx5uxT69BevvucBeedbPBCN4MW%2Btvox8144J510sr0mQv1W5WE1br3pv%2FUlVdnQkLoY08wMwY6cwxwq%2BighfX9nLl53ocHI4rn1HxnefPU9pOkQksCS0lmR3JrkPAowG4ONKKqr5i0AJlcPGbTgiwSW%2FlbAvJYJqUxuj2DuvGLF9DuF6RS1l1dJBGsy8O26cJf5292WeRYuZLYIQrdxwCAw3H3a%2BiOSvSiBWT7A12aHUXC0h9suvxRY%2F3ZBDYAYhpOn06d%2F9WjOg0q6nN9caJpY30wX8wJv4TISI0LIgihp0Fg2e4OlcLdduFvrfijHQ%2FG6fW4fKPi3bdYz4r6leGW0IIP1PukGGgqxs%2BkEBkzGWJIXHSXnl3PLBAkU%2FkeUqRxhSD1HFBpL4aDEyCnw4iKoUBJl80q61A3pdIshG4BlYHFN2wpzduidGrSDIEiINFFYLPuXAjmJ8P1uL4yoAHBUYDExVukW7q0ewx%2Bzo5hQG0hosClWoc1jM%2FSAplWb5IJdqmSo570vhc%2FY%2F9vyAtsdJukzdsDNLnpQitGzyZhSh2jzJ42T206VHcc%2BnFNpYs%2FLeFdNOrk8wfm1%2BNciOYyuDogDGKmWGx%2FCtvD17pTnjx2jxosVkW4zd6hMmax%2FCN1tucompoNoODLIDoAsmJ9tq51s2DVpaA56XgsR5uqr0Yd4J7Lw5NneUk9EZC7Y7gGQzaOoFAffHHMZr6Ur6zFcA7M%2FUZ%2B5uOMN%2BqZ0U1HkaiGNRnFIfmtTxvzLcYNk4Yc9BcJflcoVLp4dJRPjWBPDyu9snBpAR1Yr0NNCDv47rzDyfPluxhoGjDDitbKIHRtwhVNJZLbLVi4VQCO6VGkw1KQKc%2BcWEBpTNCgaEFzNTIycphRipb%2FA%2BSf%2FEOUqyxWjL03LRXG%2FkXcM%2BdsZcdq2b0OZYSGXn4yqnIMlYIOws3e9P6u13xYs0VZMaFuEjpqwEfPrO6QbhAN%2BdGuQDbrmE9ee%2Bl10wYvVCr1M290jXxX2RmXqpJHqoijASmUuJQjPMocRk%2BO7r9N2KgYJT2JYhd7XIN%2Fxts%2FCaU7744ZxRxRJhK4RvCdK9JjbqIrXCi19K1%2BsNEly%2BkjSreVqyXiOaG4Ud5UtbiUJc48S0uG5DqO4q7Ixcpk1ptzx9i4zZ0AQFRxhgrIQTYNRbBXj4E4W0MRXVK19wNJTtjdnanFU2mOAutDyyOCUiO7K08Cw1NE7miNH2SO%2B%2F%2FeR%2BZEZW1IYpopSi5wgHplpCXhQqZq0OO8ykRidrT0F3z27fLkt8I7PvLytQ1T9dKEPXT14%2FjlxUCQaehI9I0zbjDIQOLAre6jojKCDveYBwuWNpH0gpuZAyMC%2Fw6JThtXuyCKENIJahP%2BYfMUR5Y1gE%2FlI3IlT1042LlyCXnfUB9KOd1NpglnBzNLY1kzRw9ycDlNY6GpxGCtpuT6QcSxGi8sOllOcYmHF9x6%2FPPqZDTSPNgQzEDM5hSaWcLe%2FL2I27M0we8R1unrULC5%2FUTTezxS1Obtw0ua%2FmDsj17nqQN9jWtwI7ThMX20KC%2BoHdHyIHF7IE2Sk4SI1u8wBcM6SGKxMVaO0nnhjEHJrHdwfUlKV1UnfFBQXPovPj6B87BlcJWRfNvNUujR4hosEsgRr7bCWxOLt7DuSHHR1Vt4u8gtgS3FA2NkDWzepMKgQ7ggptrhLgyLVX%2FWzrn14hM7udtUF1LvMnJDuLTAHL39YjzzRrGvaAv1NuGrSQOWE8RWzX65Ft8HR%2BMJK%2F01BXDrne2A%2BlFzK5CEPVHJOiUwbtzoZMgoXIA0kKzYFYgoMiXpxLSZX%2BhUkZvVYKeiHYos9yRyZ01ywbG2BHYvWENCOQP8LQImPfv3EhoCOsO10rswRxLsP3P7tJ3jgqIJ%2FLr9XGces7RZSYhLDCb%2FwJHbKeXIK1hdITLfuJB%2BQ4Xm27ta2z%2FZ1uk5LVjo%2BoKEoDNdWZ1GRpkecHstNxCkcYKY2yAQCATz3VT36ljq3EduJZ9wKk9oAKf%2F1lf%2Fk94vNQgsMH69EHMjAtaS0M2%2BawgoVzZuEgqFkCmWM0iQf9m4c56clr4OBDIDaCZj4%2B7Th8Gg8AvjpL%2Bh7Zjr6Irann7vwn0B2qsPsrhG2%2FkoNFe0d80OzhL%2Bl%2FDhX5X151XgQ3ljc%2B5xTn4g5oAXVSGbLoqPfSDATw0cN5v74bNwdmH4dW7IjJj81ErL958B08pdI1d25TV0pMnijPZigW1mBVHJC92P0ZUy2LkFSnyeY1rnv8HYtpwrCExxsfOZGYy%2BP7dnAsBxPxKN1j1ci5BpYZ4HE9TKMdWTorwREuWx4tnvOcXEVgNOvBwBQhdwZokN%2F1ttk58YNjec6Hx9rA0PCJ5q3BSReRT1FZkIMGR0VzyvVrFhwP3oro8xYvRcaexBWGj1uSzXtrEMFM7AqLqEpOCHO5igNi1hPLOXoYwgMfrQesOWakitRnglfsgCXEcyDY2Q1RIRXHrk9DFX5pUyoo2yZ%2BmTVN2oMktBnV4LsZgnI3zP9NzkjSab0BWbiZ8QtR6Se6jeWIEcYiz523qF%2FM1vvcn%2BuSvUPhj%2Ftb0qQP9dAyIy7bh824kEQCWGDyCpGtQddH9HSLqhgw51gDZWW9NWw6nW5E6VTJdNKuocm04Z3pGH7o%2BBMAon%2FpqbllHjJ4%2BNOsvQR9oAYITII9styd1IMBak44gvHIGJRVKGD5ZkAY8C7kOkwNCLDV8Wfh%2BtIIGqtlMtOJ5Jd4jsyY%2BK6EU%2BeGHrOPgwQI%2B5zoX3EVaOiMV2cdUfW%2Biih%2F1cYyFAOPiuUDKnBiBpx%2BV%2FCi4MKfT8Ju9khwNl5fpaimGJYHJ4ljY%2FpKqbVHzUiMa5whv4T8bAzuCiHhkHXjwP2zZHqCUz12MPtXK5235yDY8t8vPewW28BXrDhu0IXvt2asKYcQoTBSB2RmmEg3dBubuC3GdOsJ2xdwsGj9nPIi9huzgHa0%2Bxb%2B71O5BijTW6%2FU4Mi%2BKvyL9YIboViJPrKOZWjZnGIBfzbXjWgKAMZTmN%2FvNil31xvR2YbFWkH6hazAuFUvM6ud6W7uazPFpslVAFmrQKro7X%2FpeaaBmzREk5Xr1bI5OPH2L5Z0off%2B%2BA6r%2BbBkBrm%2Bzqk3xs81RPDMOvkQH27%2BK1NFA%2FTWvhRv6vpxd1j6uXdqyNgeC7dOgzQi6fLWHwh0Cwuq%2FcFBi3vvBpdly2TWsQrMRvY0gCzFZUohUQVmLyg4i9i7UD0JDh8iuvFs5lDWCdN48RIlHavlyH8jwBm4BNe39pp5vqHJc2rMUGMFrwhVrBv%2BCOwNLLcc04bLgw5XBJEItbWtNmeFOKJYhii9N4K3Rw2idMJWXCuoQwhiSifm2hud5FnvP3FrF2Xx6Onn8NLO6aphqCwgtFBmb45Q6ksvnwt9fy%2FPL8MF" 
                         class="w-full h-full border-0" 
                         title="Heart Vault Locked Message">
                     </iframe>
@@ -198,7 +199,25 @@
             </div>
         </div>
 
-        <!-- SECTION 4: Media Gallery Showcase -->
+        <!-- SECTION 4: Special Video Highlight Section -->
+        <div class="w-full max-w-4xl py-10 sm:py-16 flex flex-col items-center">
+            <div class="text-center mb-8 sm:mb-10 px-2">
+                <span class="text-pink-400 text-[11px] sm:text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Special Moment</span>
+                <h3 class="text-2xl sm:text-3xl font-bold text-white mt-2.5 sm:mt-3">A Video Just For You 🎥</h3>
+                <p class="text-[11px] sm:text-xs text-purple-300/70 mt-1">Press play to catch one of our favorite memories together</p>
+            </div>
+
+          <div class="w-full max-w-2xl bg-[#160826]/90 backdrop-blur-xl border border-purple-500/30 rounded-2xl sm:rounded-3xl p-3 sm:p-5 shadow-2xl">
+    <div class="w-full h-[320px] sm:h-[420px] rounded-xl sm:rounded-2xl overflow-hidden border border-purple-500/20 bg-black/50 shadow-lg flex items-center justify-center">
+        <video controls playsinline preload="metadata" class="w-full h-full object-contain">
+            <source src="./media/couples-web.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+</div>
+        </div>
+
+        <!-- SECTION 5: Media Gallery Showcase -->
         <div class="w-full max-w-5xl py-10 sm:py-16 flex flex-col items-center">
             <div class="text-center mb-8 sm:mb-10 px-2">
                 <span class="text-pink-400 text-[11px] sm:text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Memory Lane</span>
@@ -208,8 +227,8 @@
 
             <div class="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6 px-2 sm:px-4">
                 <div class="bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl">
-                    <div class="w-full h-52 sm:h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-300 text-xs sm:text-sm font-medium border border-purple-500/20">
-                        <span>[ Memory Snapshot 1 ]</span>
+                    <div class="w-full h-52 sm:h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-300 text-xs sm:text-sm font-medium border border-purple-500/20 overflow-hidden">
+                        <img src="./media/Pasted image.png" alt="Memory 1" class="w-full h-full object-cover rounded-xl">
                     </div>
                     <div class="mt-3 px-1 flex justify-between items-center text-xs text-purple-200/80">
                         <span>✨ Unforgettable Vibes</span>
@@ -218,8 +237,8 @@
                 </div>
 
                 <div class="bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl">
-                    <div class="w-full h-52 sm:h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-300 text-xs sm:text-sm font-medium border border-purple-500/20">
-                        <span>[ Memory Snapshot 2 ]</span>
+                    <div class="w-full h-52 sm:h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-300 text-xs sm:text-sm font-medium border border-purple-500/20 overflow-hidden">
+                        <img src="./media/Pasted image (2).png" alt="Memory 2" class="w-full h-full object-cover rounded-xl">
                     </div>
                     <div class="mt-3 px-1 flex justify-between items-center text-xs text-purple-200/80">
                         <span>✨ Pure Happiness</span>
@@ -228,8 +247,8 @@
                 </div>
 
                 <div class="bg-[#160826]/80 border border-purple-500/30 rounded-2xl p-3 shadow-xl sm:col-span-2 md:col-span-1">
-                    <div class="w-full h-52 sm:h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-300 text-xs sm:text-sm font-medium border border-purple-500/20">
-                        <span>[ Memory Snapshot 3 ]</span>
+                    <div class="w-full h-52 sm:h-60 rounded-xl bg-gradient-to-br from-purple-900/60 to-pink-900/40 flex items-center justify-center text-purple-300 text-xs sm:text-sm font-medium border border-purple-500/20 overflow-hidden">
+                        <img src="./media/Pasted image (4).png" alt="Memory 3" class="w-full h-full object-cover rounded-xl">
                     </div>
                     <div class="mt-3 px-1 flex justify-between items-center text-xs text-purple-200/80">
                         <span>✨ Favorite Moments</span>
@@ -239,7 +258,7 @@
             </div>
         </div>
 
-        <!-- SECTION 5: Mini-Game & Finale -->
+        <!-- SECTION 6: Mini-Game & Final Birthday Wish -->
         <div class="w-full max-w-4xl py-10 sm:py-16 flex flex-col items-center mb-8 px-2">
             <div class="text-center mb-6 sm:mb-8">
                 <span class="text-pink-400 text-[11px] sm:text-xs font-bold tracking-widest uppercase bg-pink-500/10 px-3.5 py-1 rounded-full border border-pink-500/20">Interactive Finale</span>
@@ -259,13 +278,15 @@
                 </div>
             </div>
 
+            <!-- Final Closing Birthday Wish Card -->
             <div class="w-full mt-8 sm:mt-12 bg-gradient-to-tr from-purple-900/40 via-pink-900/30 to-[#160826] border border-pink-500/40 rounded-2xl sm:rounded-3xl p-6 sm:p-12 shadow-2xl text-center relative overflow-hidden">
-                <h3 class="text-2xl sm:text-4xl font-extrabold text-white mb-3 sm:mb-4">Happy Birthday, Anita! 🎉</h3>
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white mb-3 sm:mb-4">Happy Birthday, O. Nifemi! 🎉</h3>
                 <p class="text-purple-200/90 text-xs sm:text-base max-w-xl mx-auto leading-relaxed mb-5 sm:mb-6">
-                    Thank you for being such an incredible part of my life. May this new year bring you endless success, unbounded happiness, and everything your heart desires. Cheers to more amazing memories! 🥂✨
+                    And now, after all these pages, pictures, memories and little pieces of my heart, there's only one thing left to say...<br><br>
+                    Happy Birthday, my love. I pray this new chapter brings you closer to God, closer to the woman you're becoming, and closer to every beautiful thing He has prepared for you. May you have reasons to smile that you didn't have to manufacture, prayers answered that you almost stopped praying, and memories that make you grateful you lived this year. Wherever this next chapter takes you, I hope you always remember that somewhere in this world, there is someone who is incredibly grateful that you exist. I love you, O. Nifemi. 💜
                 </p>
                 <div class="inline-block px-5 py-2 rounded-full bg-white/5 border border-purple-400/20 text-pink-300 text-[10px] sm:text-xs font-semibold tracking-wider uppercase">
-                    Built with 💜 by Your Favorite Developer
+                    Built with 💜 just for you
                 </div>
             </div>
         </div>
@@ -275,7 +296,7 @@
     <!-- JavaScript Logic -->
     <script>
         let enteredCode = "";
-        const correctCode = "2026";
+        const correctCode = "0209";
 
         function updateDisplay() {
             const dots = document.querySelectorAll('.dot');
@@ -335,24 +356,31 @@
             hint.classList.toggle('hidden');
         }
 
+        // 4 Notebook Pages mapped with exact local media images
         const notebookPages = [
             {
-                badge: "Page 01 of 03",
-                title: "The Very Beginning ✨",
-                text: "\"I still remember the exact day we started talking. Didn't have any idea you'd turn out to be my absolute favorite notification...\"",
-                placeholder: "[ Polaroid Memory 1 ]"
+                badge: "Page 01 of 04",
+                title: "How I See You ✨",
+                text: `"When I look at you, I honestly see someone really special. Of course, you're beautiful, and I don't think I'll ever get tired of telling you that, but there's so much more to you than that. I see your heart, the way you care about people, the way you try to do what is right, and the way you keep pushing yourself even when things aren't always easy. I see a woman who is still growing and figuring life out, and I'm genuinely grateful that I get to be part of that journey with you."`,
+                img: "./media/nifemi1.jpg"
             },
             {
-                badge: "Page 02 of 03",
-                title: "Inside Jokes & Chaos 💬",
-                text: "\"From all our random gists to keeping me sane when coding gets crazy. You're literally one of a kind, no cap.\"",
-                placeholder: "[ Polaroid Memory 2 ]"
+                badge: "Page 02 of 04",
+                title: "The Little Things I Love 💬",
+                text: `"I don't think you even realize how many little things about you I've come to love. The way you talk, your laugh, the random things you say, the way you react to certain things, and even those little habits of yours that sometimes make me laugh. 😂 I love the way you care about me and check up on me. I love our random conversations, the silly moments, and even the times we don't agree on things. Somehow, all these little things have become part of what makes you you, and I've grown to love them more than I can explain."`,
+                img: "./media/Pasted image.png"
             },
             {
-                badge: "Page 03 of 03",
-                title: "The Birthday Wish 🎉",
-                text: "\"As you step into a new year of your life, may all your goals align. Stay happy, stay you, my absolute favorite person!\"",
-                placeholder: "[ Birthday Photo / Final ]"
+                badge: "Page 03 of 04",
+                title: "Our Journey 🌟",
+                text: `"Thinking about us from February till now honestly makes me smile. We've had our beautiful moments, our funny moments, our misunderstandings, and moments where we've had to learn each other a little more. But through all of it, we've kept growing. I've learned so much about you, and you've also gotten to know different parts of me. We're still figuring things out, and I don't expect us to have everything perfectly figured out already. But I'm grateful for what we've built so far, and I'm grateful that somehow, out of all the people in this world, I get to call you mine."`,
+                img: "./media/Pasted image (2).png"
+            },
+            {
+                badge: "Page 04 of 04",
+                title: "What I Pray For You 🙏",
+                text: `"My prayer for you as you enter this new year is that God continues to guide you and order your steps. I pray that you become everything He has created you to be and that you never lose yourself along the way. I pray for wisdom, strength, peace, good health, genuine happiness, and the grace to handle everything that comes your way. I pray that the things you've been praying about privately begin to make sense and that God surprises you with things you didn't even know you needed. Most importantly, I pray that you always remember how loved you are, by God, by the people around you, and especially by me. ❤️"`,
+                img: "./media/Pasted image (5).png"
             }
         ];
 
@@ -368,7 +396,7 @@
                 document.getElementById('pageBadge').textContent = page.badge;
                 document.getElementById('pageTitle').textContent = page.title;
                 document.getElementById('pageText').textContent = page.text;
-                document.getElementById('pageImagePlaceholder').textContent = page.placeholder;
+                document.getElementById('pageImagePlaceholder').innerHTML = `<img src="${page.img}" alt="Memory" class="w-full h-full object-cover rounded-xl">`;
 
                 const dots = document.querySelectorAll('.dot-indicator');
                 dots.forEach((dot, idx) => {
